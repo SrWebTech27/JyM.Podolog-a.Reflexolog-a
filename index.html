@@ -9,380 +9,172 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        /* --- PALETA DE COLORES --- */
         :root {
             --verde-menta: #E0F2F1;
             --verde-oscuro: #009B9D;
-            --dorado-acento: #009B9D;
             --crema-fondo: #FFFFFF;
-            --gris-texto: #000000; /* Negro puro */
+            --gris-texto: #2d2d2d; 
             --blanco: #FFFFFF;
+            --sombra: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --glow: 0 0 20px rgba(0, 155, 157, 0.3);
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            background-color: var(--crema-fondo);
-            color: var(--gris-texto);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Globales --- */
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--crema-fondo); color: var(--gris-texto); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--verde-oscuro); margin-bottom: 15px; }
         h1 { font-size: 3.5rem; }
         h2 { font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .btn-primary { background: var(--verde-oscuro); color: var(--blanco); border: 2px solid var(--verde-oscuro); }
-        .btn-primary:hover { background: var(--blanco); color: var(--verde-oscuro); border-color: var(--verde-oscuro); transform: translateY(-3px) scale(1.02); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-        .btn-secondary { background: none; color: var(--verde-oscuro); border: 2px solid var(--verde-oscuro); }
-        .btn-secondary:hover { background: var(--verde-oscuro); color: var(--blanco); transform: translateY(-3px) scale(1.02); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        
+        .btn { display: inline-block; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid var(--verde-oscuro); }
+        .btn-primary { background: var(--verde-oscuro); color: var(--blanco); }
+        .btn-primary:hover { background: var(--blanco); color: var(--verde-oscuro); transform: translateY(-3px); }
+        .btn-secondary { background: none; color: var(--verde-oscuro); }
+        .btn-secondary:hover { background: var(--verde-oscuro); color: var(--blanco); transform: translateY(-3px); }
 
-        /* --- Header / Navegación --- */
         header { background: var(--blanco); padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
         header .container { display: flex; justify-content: space-between; align-items: center; }
-        
-        /* ESTILO NUEVO PARA EL LOGO DEL HEADER (barra superior) */
-        .header-logo-img {
-            height: 70px; /* Altura ajustada para la barra */
-            width: auto;
-            display: block;
-        }
+        .header-logo-img { height: 70px; }
 
-        /* --- Hero Section (PORTADA) --- */
-        .hero {
-            position: relative;
-            min-height: 80vh; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: var(--crema-fondo); 
-            color: var(--gris-texto);
-            overflow: hidden;
-            padding-top: 40px;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            animation: fadeIn 1.5s ease-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* Logo grande de la portada central */
-        .hero-logo {
-            width: 80%;
-            max-width: 700px;
-            height: auto;
-            margin-bottom: 30px;
-        }
+        .hero { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 0; }
+        .hero-content { max-width: 900px; display: flex; flex-direction: column; align-items: center; }
+        .hero-logo { width: 80%; max-width: 400px; margin-bottom: 30px; }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            color: var(--verde-oscuro); 
-            margin-bottom: 20px;
-            line-height: 1.1;
-            font-weight: 700;
-        }
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--gris-texto);
-            font-weight: 500;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Secciones Generales --- */
         section { padding: 80px 0; }
-        .section-light { background-color: var(--blanco); }
         .section-dark { background-color: var(--verde-menta); }
 
-        /* --- About Section --- */
-        .about-grid {
+        /* SERVICIOS */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        
+        .service-card { 
+            background: var(--blanco); 
+            padding: 0 0 30px 0; 
+            border-radius: 15px; 
+            box-shadow: var(--sombra); 
+            text-align: center; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: var(--glow);
+            border-color: var(--verde-oscuro);
+        }
+
+        /* Contenedor de imagen que NO recorta */
+        .service-img-wrapper {
+            width: 100%;
+            height: 220px;
             display: flex;
             align-items: center;
-            gap: 50px;
-            margin-top: 50px;
-        }
-        .about-image { flex: 1; text-align: center; }
-        .about-image img { max-width: 100%; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); transform: rotate(2deg); transition: transform 0.3s ease; }
-        .about-image img:hover { transform: rotate(0deg) scale(1.02); }
-        .about-content { flex: 1; }
-        .about-content h3 { font-size: 2rem; color: var(--verde-oscuro); }
-
-        /* --- Services Grid --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .service-card {
-            background: var(--blanco);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
+            justify-content: center;
+            background-color: #f9f9f9;
             overflow: hidden;
-            border-bottom: 3px solid transparent;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-            border-bottom: 3px solid var(--verde-oscuro);
-        }
-        .service-card i {
-            font-size: 3rem;
-            color: var(--verde-oscuro);
-            margin-bottom: 20px;
-            transition: color 0.3s ease;
-        }
-        .service-card:hover i {
-            transform: scale(1.1);
-        }
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-            color: var(--gris-texto);
-            font-weight: 700;
-        }
-        .service-card p {
-            color: #333333;
         }
 
-        /* --- Testimonials --- */
-        .testimonial-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            gap: 30px;
-            padding-bottom: 20px;
-            margin-top: 50px;
-            justify-content: center;
-        }
-        .testimonial-card {
-            flex: 0 0 400px;
-            scroll-snap-align: center;
-            background: var(--blanco);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-             border: 1px solid var(--verde-menta);
-        }
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: var(--gris-texto);
-            font-size: 1.1rem;
-        }
-        .testimonial-card .author {
-            font-weight: 600;
-            color: var(--verde-oscuro);
+        .service-img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; /* Muestra la imagen completa sin recortar nada */
+            transition: transform 0.5s ease;
         }
 
-        /* --- CTA Section --- */
-        .cta-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1596708605559-67990b7696f8?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-            color: var(--blanco);
-            text-align: center;
-            padding: 100px 0;
-            border-radius: 15px;
-            margin: 50px auto;
-            max-width: 1000px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        .service-card:hover .service-img {
+            transform: scale(1.05);
         }
-        .cta-section h2 { color: var(--blanco); margin-bottom: 30px; font-size: 3rem; }
-        .cta-section p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 40px; }
 
-        /* --- Footer --- */
-        footer {
-            background: var(--gris-texto);
-            color: var(--blanco);
-            padding: 60px 0;
-            text-align: center;
-            font-size: 0.95rem;
-        }
-        footer .footer-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-        footer .footer-links a:hover {
-            color: var(--verde-oscuro);
-        }
-        footer .social-icons a {
-            color: var(--blanco);
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        footer .social-icons a:hover {
-            color: var(--verde-oscuro);
-        }
-        footer p { margin-top: 20px; opacity: 0.9; }
+        .service-card i { font-size: 2.2rem; color: var(--verde-oscuro); margin-top: 20px; margin-bottom: 10px; transition: 0.3s; }
+        .service-card h3 { padding: 0 20px; font-size: 1.4rem; min-height: 3.5rem; display: flex; align-items: center; justify-content: center; }
+        .service-card p { padding: 0 20px; color: #555; font-size: 0.95rem; flex-grow: 1; }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 992px) {
-            .about-grid { flex-direction: column; }
-            .hero-content h1 { font-size: 2.8rem; }
-            .hero-content p { font-size: 1.2rem; }
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 2rem; }
-            .cta-section h2 { font-size: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-            .hero { min-height: 60vh; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .hero-logo { width: 90%; } 
-            .testimonial-card { flex: 0 0 90%; }
-        }
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.8rem; }
-            .btn { padding: 12px 25px; font-size: 1rem; }
-            .cta-section h2 { font-size: 2rem; }
-            /* Ajuste del logo para móviles */
-            .header-logo-img { height: 50px; }
-        }
+        footer { background: #1a1a1a; color: var(--blanco); padding: 60px 0; text-align: center; }
+        .social-icons a { color: var(--blanco); font-size: 1.5rem; margin: 0 12px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--verde-oscuro); }
+        .footer-link { color: var(--verde-oscuro); text-decoration: none; font-weight: 600; }
+
+        @media (max-width: 992px) { .welcome-grid { grid-template-columns: 1fr; text-align: center; } }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <div class="logo">
-                <img src="Perfil.jpeg" alt="Logo JyM" class="header-logo-img">
-            </div>
-            
-            <a href="https://wa.me/51946992556?text=Hola%20JyM,%20me%20interesan%20sus%20servicios%20y%20quisiera%20pedir%20información." class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Cita por WhatsApp</a>
+            <img src="Perfil.jpeg" alt="Logo JyM" class="header-logo-img">
+            <a href="https://wa.me/51946992556" target="_blank" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Cita por WhatsApp</a>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <img src="Perfil.jpeg" alt="Logo JyM Podología" class="hero-logo">
-            
+        <div class="hero-content" data-aos="fade-up">
+            <img src="Perfil.jpeg" alt="Logo JyM" class="hero-logo">
             <h1>Bienestar Integral, Paso a Paso</h1>
-            <p>Descubre el arte del cuidado profesional: Podología Avanzada y Reflexología que transforma.</p>
-            <a href="https://wa.me/51946992556?text=Hola%20JyM,%20me%20interesan%20sus%20servicios%20y%20quisiera%20agendar%20una%20cita." class="btn btn-primary">
-                <i class="fas fa-calendar-check"></i> Agendar tu Experiencia
-            </a>
-        </div>
-    </section>
-
-    <section id="about" class="section-light">
-        <div class="container">
-            <h2>Nuestra Pasión: Tu Bienestar</h2>
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="Laser.jpeg" alt="Pies relajándose">
-                </div>
-                <div class="about-content">
-                    <h3>Más que Podología, es Salud y Arte</h3>
-                    <p>En JyM, creemos que tus pies son el cimiento de tu bienestar. Con años de experiencia, ofrecemos tratamientos de podología con la más alta precisión y fusionamos esta ciencia con la ancestral sabiduría de la reflexología, creando una experiencia holística que revitaliza cuerpo y mente.</p>
-                    <p>Cada servicio es personalizado, buscando no solo aliviar molestias, sino también prevenir futuras afecciones y brindarte un profundo estado de relajación. Descubre cómo una visita a JyM puede transformar tu día a día.</p>
-                    <a href="https://wa.me/51946992556?text=Hola%20JyM,%20quisiera%20saber%20más%20sobre%20ustedes." class="btn btn-secondary">Conócenos Mejor</a>
-                </div>
-            </div>
+            <p>Descubre el arte del cuidado profesional realizado por especialistas expertos.</p>
+            <a href="#services" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agendar Cita</a>
         </div>
     </section>
 
     <section id="services" class="section-dark">
         <div class="container">
-            <h2>Nuestros Servicios Exclusivos</h2>
+            <h2 data-aos="fade-up">Nuestros Servicios Exclusivos</h2>
             <div class="services-grid">
-                <div class="service-card">
+                
+                <div class="service-card" data-aos="flip-left">
+                    <div class="service-img-wrapper">
+                        <img src="Podologia .jpeg" alt="Podología Clínica" class="service-img">
+                    </div>
                     <i class="fas fa-shoe-prints"></i>
                     <h3>Podología Clínica Avanzada</h3>
-                    <p>Tratamientos especializados para uñas encarnadas, callosidades, hongos y pie diabético. Precisión y cuidado en cada detalle.</p>
+                    <p>Atención profesional para uñas encarnadas, callosidades y pie diabético.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="service-img-wrapper">
+                        <img src="Reflexología .jpeg" alt="Reflexología Podal" class="service-img">
+                    </div>
                     <i class="fas fa-spa"></i>
                     <h3>Reflexología Podal Terapéutica</h3>
-                    <p>Sesiones profundas para armonizar tu energía, reducir el estrés y mejorar la circulación. Un viaje de bienestar.</p>
+                    <p>Armoniza tu energía y reduce el estrés a través de puntos clave.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="service-img-wrapper">
+                        <img src="EstéticaPodalPremium.jpeg" alt="Estética Podal Premium" class="service-img">
+                    </div>
                     <i class="fas fa-hand-holding-heart"></i>
                     <h3>Estética Podal Premium</h3>
-                    <p>Desde pedicuras médicas hasta tratamientos revitalizantes que dejan tus pies suaves, hermosos y saludables.</p>
+                    <p>Tratamientos revitalizantes que dejan tus pies suaves y hermosos.</p>
                 </div>
-                <div class="service-card">
+
+                <div class="service-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="service-img-wrapper">
+                        <img src="Productos Especializados.jpeg" alt="Productos Especializados" class="service-img">
+                    </div>
                     <i class="fas fa-shopping-basket"></i>
-                    <h3>Productos de Cuidado Especializado</h3>
-                    <p>Asesoramiento y venta de productos profesionales para mantener tus pies sanos y bellos en casa.</p>
+                    <h3>Productos Especializados</h3>
+                    <p>Línea profesional para mantener la salud de tus pies desde casa.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="section-light">
+    <section class="cta-section" data-aos="zoom-in">
         <div class="container">
-            <h2>Lo que Dicen Nuestros Clientes</h2>
-            <div class="testimonial-carousel">
-                <div class="testimonial-card">
-                    <p>"Desde que vengo a JyM, mis problemas de uñas han desaparecido. La atención es increíble y el alivio es inmediato. ¡Súper recomendados!"</p>
-                    <div class="author">- María P.</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"La sesión de reflexología fue una maravilla, salí renovado. Un verdadero oasis de paz en Lima. ¡Volveré pronto!"</p>
-                    <div class="author">- Carlos M.</div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Profesionalismo, calidez y resultados. Mis pies nunca se habían sentido tan bien. Gracias, JyM, por su excelente trabajo."</p>
-                    <div class="author">- Ana G.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>¿Listo para darle a tus pies el cuidado que merecen?</h2>
-            <p>Agenda hoy mismo tu consulta y empieza tu camino hacia un bienestar renovado. Te esperamos en Calle Porta # 170 - Miraflores.</p>
-            <a href="https://wa.me/51946992556?text=Hola%20JyM,%20estoy%20listo/a%20para%20agendar%20mi%20cita%20de%20bienestar." class="btn btn-primary">
-                <i class="fas fa-phone-alt"></i> Contactar Ahora
-            </a>
+            <h2>¿Listo para el cuidado que mereces?</h2>
+            <p>Atención personalizada en Calle Porta # 170 - Miraflores.</p>
+            <a href="https://wa.me/51946992556" target="_blank" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Contactar Ahora</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="#about">Sobre Nosotros</a>
-                <a href="#services">Servicios</a>
-                <a href="#">Política de Privacidad</a>
-            </div>
-            
             <div class="social-icons">
                 <a href="https://www.tiktok.com/@jym.podologia" target="_blank"><i class="fab fa-tiktok"></i></a>
                 <a href="https://www.instagram.com/jym.podologia.reflexologia/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -390,10 +182,11 @@
                 <a href="https://wa.me/51946992556" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 <a href="maps.app.goo.gl/jTPJKJFQZXxv4Mns5 " target="_blank"><i class="fas fa-map-marker-alt"></i></a>
             </div>
-            
-            <p>© 2026 SrWebTech. Todos los derechos reservados.</p>
+            <p>© 2026 <a href="https://www.tiktok.com/@sr_webtech" target="_blank" class="footer-link">SrWebTech</a>. Todos los derechos reservados.</p>
         </div>
-    </footer>2
+    </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
