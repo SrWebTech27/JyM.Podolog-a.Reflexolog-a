@@ -32,11 +32,11 @@
             overflow-x: hidden;
         }
 
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 30px; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
 
         /* --- Header --- */
         header {
-            padding: 15px 0;
+            padding: 12px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -46,17 +46,16 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo-small { height: 55px; border-radius: 50%; transition: var(--transition); }
+        .logo-small { height: 50px; border-radius: 50%; transition: var(--transition); }
         .logo-small:hover { transform: scale(1.1) rotate(5deg); }
 
-        /* Estilo para los botones del Header */
-        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
         .btn-nav-text {
             text-decoration: none;
             color: var(--dark);
             font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
             transition: var(--transition);
             text-transform: uppercase;
         }
@@ -66,11 +65,14 @@
             text-decoration: none;
             color: var(--primary);
             font-weight: 800;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             border: 2px solid var(--primary);
-            padding: 10px 18px;
-            border-radius: 12px;
+            padding: 8px 14px;
+            border-radius: 10px;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .btn-nav-outline:hover {
             background: var(--primary);
@@ -79,11 +81,11 @@
 
         /* --- Hero Section --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             background: radial-gradient(circle at 80% 20%, var(--primary-light) 0%, #ffffff 50%);
-            padding-top: 80px;
+            padding-top: 100px;
         }
         .hero-grid {
             display: grid;
@@ -93,7 +95,7 @@
         }
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             line-height: 1.1;
             margin-bottom: 25px;
             color: var(--dark);
@@ -119,8 +121,8 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 18px 45px;
-            border-radius: 15px;
+            padding: 16px 35px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
             transition: var(--transition);
@@ -134,14 +136,14 @@
         .services-layout {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 25px;
             margin-top: 50px;
         }
 
         .card {
             background: var(--bg-soft);
-            padding: 40px;
-            border-radius: 30px;
+            padding: 30px;
+            border-radius: 25px;
             transition: var(--transition);
             border: 1px solid rgba(0,0,0,0.03);
             text-align: center;
@@ -152,8 +154,8 @@
             transform: translateY(-10px); 
             box-shadow: 0 20px 40px rgba(0, 128, 129, 0.1); 
         }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 25px; display: block; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        .card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
 
         /* --- Featured: Slider Section --- */
         .featured-product {
@@ -167,14 +169,14 @@
             margin-top: 40px;
             position: relative;
         }
-        .featured-content { padding: 60px; display: flex; flex-direction: column; justify-content: center; z-index: 2; }
+        .featured-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; z-index: 2; }
         
         .slider-container {
             position: relative;
             width: 100%;
             height: 100%;
             overflow: hidden;
-            min-height: 450px; 
+            min-height: 400px; 
         }
         .slider-track {
             display: flex;
@@ -190,7 +192,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.85); 
+            filter: brightness(0.8); 
         }
         
         .slide-caption {
@@ -201,18 +203,12 @@
             padding: 40px 20px 25px;
             background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
             text-align: center;
-            color: white;
         }
         .slide-caption h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--accent);
             margin-bottom: 5px;
-        }
-        .slide-caption p {
-            font-size: 1rem;
-            opacity: 0.9;
-            font-weight: 300;
         }
 
         .slider-dots {
@@ -244,13 +240,12 @@
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
-            position: relative;
             border: 1px solid rgba(0, 128, 129, 0.05);
         }
         .cta-info-card {
             background: var(--primary);
             color: white;
-            padding: 40px;
+            padding: 35px;
             border-radius: 30px;
             box-shadow: 0 20px 40px rgba(0, 128, 129, 0.2);
             transform: rotate(2deg);
@@ -265,13 +260,13 @@
             right: 30px;
             background: #25d366;
             color: white;
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 28px;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             z-index: 1000;
             transition: var(--transition);
@@ -280,23 +275,31 @@
         .wsp-float:hover { transform: scale(1.1) rotate(10deg); }
 
         /* --- Footer --- */
-        footer { background: #0a0a0a; color: white; padding: 80px 0 40px; border-radius: 60px 60px 0 0; }
-        
-        .badge { background: var(--accent); color: var(--dark); padding: 6px 16px; border-radius: 50px; font-weight: 800; font-size: 0.75rem; width: fit-content; margin-bottom: 15px; text-transform: uppercase; }
+        footer { background: #0a0a0a; color: white; padding: 60px 0 30px; border-radius: 40px 40px 0 0; }
+        .badge { background: var(--accent); color: var(--dark); padding: 5px 14px; border-radius: 50px; font-weight: 800; font-size: 0.7rem; width: fit-content; margin-bottom: 12px; text-transform: uppercase; }
 
-        /* --- Responsive --- */
+        /* --- Responsive Fixed --- */
         @media (max-width: 992px) {
             .hero-grid, .services-layout, .featured-product, .cta-wrapper { grid-template-columns: 1fr; }
-            .hero { height: auto; padding: 140px 0 60px; text-align: center; }
-            .hero-text h1 { font-size: 2.8rem; }
+            .hero { padding: 120px 0 60px; text-align: center; }
+            .hero-text h1 { font-size: 2.2rem; }
             .hero-image-wrap { order: -1; }
             .featured-product { grid-column: span 1; }
-            .slider-container { height: 400px; }
-            .cta-wrapper { padding: 40px 20px; text-align: center; }
-            .cta-info-card { transform: rotate(0); }
-            .cta-text-content h2 { font-size: 2.2rem; }
+            .slider-container { height: 350px; }
+            .cta-wrapper { padding: 30px 20px; text-align: center; }
+            .cta-info-card { transform: rotate(0); margin-top: 20px; }
+            
+            /* Ajuste Header para Móvil */
             .nav-actions { gap: 10px; }
-            .btn-nav-text { display: none; } /* Oculto en móvil por espacio */
+            .btn-nav-text { 
+                display: inline-block; 
+                font-size: 0.65rem;
+            }
+            .btn-nav-outline {
+                padding: 6px 10px;
+                font-size: 0.65rem;
+            }
+            .logo-small { height: 40px; }
         }
     </style>
 </head>
@@ -323,8 +326,8 @@
             <div class="hero-text" data-aos="fade-right">
                 <div class="badge">Especialistas en Podología</div>
                 <h1>Bienestar integral para tus <span>pies.</span></h1>
-                <p style="font-size: 1.2rem; margin-bottom: 35px; color: #555; max-width: 550px;">Descubre el alivio profesional en Miraflores. Combinamos ciencia clínica con terapias de relajación profunda.</p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <p style="font-size: 1.1rem; margin-bottom: 30px; color: #555; max-width: 550px;">Descubre el alivio profesional en Miraflores. Combinamos ciencia clínica con terapias de relajación profunda.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
                     <a href="#servicios" class="btn btn-main">Ver Tratamientos</a>
                     <a href="https://wa.me/51946992556" class="btn" style="background: var(--primary-light); color: var(--primary);">Contactar</a>
                 </div>
@@ -335,10 +338,10 @@
         </div>
     </section>
 
-    <section id="servicios" style="padding: 100px 0;">
+    <section id="servicios" style="padding: 80px 0;">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;" data-aos="fade-up">
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem;"></h2>
+            <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Cuidado Profesional</h2>
                 <p style="color: var(--primary); font-weight: 600;">Calidad y precisión en cada paso.</p>
             </div>
 
@@ -364,9 +367,9 @@
                 <div class="featured-product" data-aos="zoom-in">
                     <div class="featured-content">
                         <div class="badge" style="background: var(--accent);">Tecnología & Excelencia</div>
-                        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; color: white;">Tratamientos Avanzados y Productos</h2>
-                        <p style="margin-bottom: 30px; opacity: 0.8; font-size: 1.1rem;">
-                            Fusionamos experiencia clínica con aparatología de vanguardia y productos especializados. Mira a la derecha para explorar nuestros servicios principales en detalle.
+                        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; color: white;">Tratamientos Avanzados</h2>
+                        <p style="margin-bottom: 30px; opacity: 0.8; font-size: 1rem;">
+                            Fusionamos experiencia clínica con aparatología de vanguardia y productos especializados. Explora nuestros servicios destacados.
                         </p>
                         <a href="https://wa.me/51946992556" class="btn btn-main" style="background: var(--accent); color: var(--dark); width: fit-content;">Consultar Precios</a>
                     </div>
@@ -377,29 +380,28 @@
                                 <img src="Laser.jpeg" alt="Tratamiento Láser" loading="lazy">
                                 <div class="slide-caption">
                                     <h4>Tratamiento Láser</h4>
-                                    <p>Tecnología avanzada para eliminar hongos y lesiones rebeldes.</p>
+                                    <p>Tecnología para eliminar hongos y lesiones rebeldes.</p>
                                 </div>
                             </div>
                             <div class="slide">
                                 <img src="Podologia .jpeg" alt="Podología Clínica" loading="lazy">
                                 <div class="slide-caption">
                                     <h4>Podología Clínica</h4>
-                                    <p>Diagnóstico preciso y cuidado médico para tus pies.</p>
+                                    <p>Diagnóstico preciso y cuidado médico integral.</p>
                                 </div>
                             </div>
                             <div class="slide">
                                 <img src="Reflexología .jpeg" alt="Reflexología Podal" loading="lazy">
                                 <div class="slide-caption">
                                     <h4>Reflexología Relax</h4>
-                                    <p>Puntos de presión que alivian el estrés y equilibran tu cuerpo.</p>
+                                    <p>Puntos de presión que equilibran tu cuerpo.</p>
                                 </div>
-              
                             </div>
-                             <div class="slide">
+                            <div class="slide">
                                 <img src="Productos Especializados.jpeg" alt="Productos Especializados" loading="lazy">
                                 <div class="slide-caption">
                                     <h4>Productos Especializados</h4>
-                                    <p>Lleva el cuidado profesional a casa con nuestra línea exclusiva.</p>
+                                    <p>Lleva el cuidado profesional a casa.</p>
                                 </div>
                             </div>
                         </div>
@@ -410,34 +412,31 @@
         </div>
     </section>
 
-    <section style="padding: 100px 0; background: var(--bg-soft);">
+    <section style="padding: 80px 0; background: var(--bg-soft);">
         <div class="container">
             <div class="cta-wrapper" data-aos="fade-up">
                 <div class="cta-text-content">
                     <span style="color: var(--primary); font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase;">Tu salud es prioridad</span>
-                    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin: 15px 0 25px; line-height: 1.2;">
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 15px 0 25px; line-height: 1.2;">
                         ¿Listo para el cuidado <br><i style="color: var(--primary);">que mereces?</i>
                     </h2>
-                    <p style="font-size: 1.1rem; color: #555; margin-bottom: 35px; max-width: 500px;">
-                        Visítanos en Miraflores y experimenta la diferencia de una atención personalizada con los mejores especialistas.
+                    <p style="font-size: 1rem; color: #555; margin-bottom: 35px; max-width: 500px;">
+                        Visítanos en Miraflores y experimenta la diferencia de una atención personalizada.
                     </p>
-                    <a href="https://wa.me/51946992556" target="_blank" class="btn btn-main" style="padding: 20px 50px;">
-                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> Agendar Cita Ahora
+                    <a href="https://wa.me/51946992556" target="_blank" class="btn btn-main">
+                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> Agendar Cita
                     </a>
                 </div>
 
                 <div class="cta-info-card">
-                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;">Ubicación y Horario</h3>
-                    <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                        <i class="fas fa-map-marker-alt" style="margin-top: 5px;"></i>
-                        <p><b>Sede Principal:</b><br>Calle Porta # 170 - Miraflores, Lima</p>
+                    <h3 style="color: white; font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;">Ubicación y Horario</h3>
+                    <div style="display: flex; gap: 12px; margin-bottom: 15px;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><b>Sede:</b> Calle Porta # 170 - Miraflores</p>
                     </div>
-                    <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                        <i class="fas fa-clock" style="margin-top: 5px;"></i>
-                        <p><b>Horario:</b><br>Lunes a Sábado<br>9:00 AM - 8:00 PM</p>
-                    </div>
-                    <div style="background: rgba(0,0,0,0.15); padding: 15px; border-radius: 12px; font-size: 0.85rem; text-align: center;">
-                        <i class="fas fa-info-circle"></i> Atención previa cita vía WhatsApp.
+                    <div style="display: flex; gap: 12px; margin-bottom: 15px;">
+                        <i class="fas fa-clock"></i>
+                        <p><b>Horario:</b> Lunes a Sábado 9 AM - 8 PM</p>
                     </div>
                 </div>
             </div>
@@ -446,38 +445,29 @@
 
     <footer>
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 50px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;">
                 <div>
-                    <img src="Perfil.jpeg" alt="Logo" style="height: 70px; border-radius: 50%; filter: brightness(1.2); margin-bottom: 20px;">
-                    <p style="opacity: 0.6; font-size: 0.9rem;">Expertos en Podología y Reflexología. Comprometidos con tu salud y comodidad en cada paso que das.</p>
+                    <img src="Perfil.jpeg" alt="Logo" style="height: 60px; border-radius: 50%; margin-bottom: 15px;">
+                    <p style="opacity: 0.6; font-size: 0.85rem;">Expertos en Podología y Reflexología en Miraflores.</p>
                 </div>
                 <div>
-                    <h4 style="margin-bottom: 20px; font-size: 1.2rem;">Síguenos</h4>
-                    <div style="display: flex; gap: 20px; font-size: 1.6rem;">
+                    <h4 style="margin-bottom: 15px;">Síguenos</h4>
+                    <div style="display: flex; gap: 15px; font-size: 1.4rem;">
                         <a href="https://www.tiktok.com/@jym.podologia" target="_blank" style="color: white; opacity: 0.8;"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.instagram.com/jym.podologia.reflexologia/" target="_blank" style="color: white; opacity: 0.8;"><i class="fab fa-instagram"></i></a>
                         <a href="https://wa.me/51946992556" style="color: white; opacity: 0.8;"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div>
-                    <h4 style="margin-bottom: 20px; font-size: 1.2rem;">Contacto</h4>
-                    <p style="opacity: 0.6; font-size: 0.9rem;"><i class="fas fa-envelope"></i> jympodologia@gmail.com</p>
-                    <p style="opacity: 0.6; font-size: 0.9rem;"><i class="fas fa-phone"></i> +51 946 992 556</p>
-                </div>
             </div>
-            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.8rem; opacity: 0.5;">
-                © 2026 JyM Podología. Diseñado por <a href="https://www.tiktok.com/@sr_webtech" target="_blank" style="color: white;">SrWebTech</a>. Todos los derechos reservados.
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; font-size: 0.75rem; opacity: 0.5;">
+                © 2026 JyM Podología. Diseñado por SrWebTech.
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            easing: 'ease-in-out'
-        });
+        AOS.init({ duration: 1000, once: true });
 
         const track = document.getElementById('sliderTrack');
         const slides = Array.from(track.children);
@@ -496,18 +486,14 @@
 
         function moveToSlide(index) {
             currentIndex = index;
-            const amountToMove = -100 * currentIndex;
-            track.style.transform = `translateX(${amountToMove}%)`;
+            track.style.transform = `translateX(-${100 * currentIndex}%)`;
             dots.forEach(d => d.classList.remove('active'));
             dots[currentIndex].classList.add('active');
         }
 
         setInterval(() => {
-            let nextIndex = currentIndex + 1;
-            if (nextIndex >= slides.length) {
-                nextIndex = 0;
-            }
-            moveToSlide(nextIndex);
+            currentIndex = (currentIndex + 1) % slides.length;
+            moveToSlide(currentIndex);
         }, 4500);
     </script>
 </body>
