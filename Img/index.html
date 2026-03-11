@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JyM Podología en Miraflores. Tratamientos láser, reflexología y estética podal premium.">
+    
+    <meta property="og:title" content="JyM Podología | Salud & Bienestar Premium">
+    <meta property="og:description" content="Especialistas en tratamientos láser, reflexología y estética podal en Miraflores. ¡Reserva tu evaluación hoy!">
+    <meta property="og:image" content="Perfil.jpeg">
+    <meta property="og:type" content="website">
+
+    <title>JyM Podología | Salud & Bienestar Premium</title>
+    
+    <link rel="icon" href="Perfil.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES GENERALES --- */
+        :root {
+            --primary: #007071; /* Un tono un poco más profundo y elegante */
+            --primary-light: #eef7f7;
+            --accent: #dfb944; /* Dorado más vibrante */
+            --dark: #121212;
+            --bg-soft: #fbfaf9;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--white); 
+            color: var(--dark); 
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* --- SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8f8f8; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--dark); }
+
+        /* --- BARRA DE PROGRESO --- */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%; z-index: 1005;
+            transition: width 0.1s;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- HEADER & NAV --- */
+        header {
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-small { height: 48px; border-radius: 50%; transition: var(--transition-bounce); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .logo-small:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 8px 20px rgba(0,112,113,0.2); }
+
+        .nav-actions { display: flex; align-items: center; gap: 24px; }
+        .btn-nav-text {
+            text-decoration: none;
+            color: #444;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            position: relative;
+        }
+        .btn-nav-text::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+            background: var(--accent); transition: var(--transition); border-radius: 2px;
+        }
+        .btn-nav-text:hover { color: var(--primary); }
+        .btn-nav-text:hover::after { width: 100%; }
+        
+        .btn-nav-outline {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.8rem;
+            border: 2px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: 12px;
+            transition: var(--transition);
+            display: flex; align-items: center; gap: 8px;
+            overflow: hidden; position: relative; z-index: 1;
+        }
+        .btn-nav-outline::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%;
+            background: var(--primary); z-index: -1; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-nav-outline:hover { color: white; border-color: var(--primary); }
+        .btn-nav-outline:hover::before { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at 85% 15%, var(--primary-light) 0%, #ffffff 60%);
+            padding-top: 120px;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+        .hero-text span { 
+            color: var(--primary); 
+            font-style: italic; 
+            position: relative;
+            display: inline-block;
+        }
+        .hero-text span::after {
+            content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px;
+            background: rgba(223, 185, 68, 0.25); z-index: -1; transform: skewX(-15deg);
+        }
+        
+        .hero-image-wrap { position: relative; display: flex; justify-content: center; }
+        .hero-main-img {
+            width: 90%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morph 12s ease-in-out infinite, floatImg 8s ease-in-out infinite;
+            box-shadow: 0 40px 80px rgba(0, 112, 113, 0.15);
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .hero-main-img:hover {
+            transform: scale(1.03) translateY(-10px);
+            box-shadow: 0 50px 100px rgba(0, 112, 113, 0.25);
+        }
+
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+        @keyframes floatImg {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.6s ease;
+        }
+        .btn:hover::after { left: 100%; }
+
+        .btn-main { 
+            background: var(--primary); 
+            color: var(--white); 
+            box-shadow: 0 10px 25px rgba(0, 112, 113, 0.3); 
+        }
+        .btn-main:hover { 
+            transform: translateY(-4px); 
+            background: #005c5d; 
+            box-shadow: 0 15px 35px rgba(0, 112, 113, 0.4); 
+        }
+
+        /* --- SECCIÓN CARRUSEL OSCURA (PREMIUM) --- */
+        .featured-product {
+            grid-column: span 3;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            background: linear-gradient(145deg, #181818 0%, #0a0a0a 100%);
+            color: var(--white);
+            border-radius: 32px;
+            overflow: hidden;
+            margin-top: 40px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .featured-product::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(223, 185, 68, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .featured-content { 
+            padding: 70px 50px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            z-index: 2; 
+            position: relative; 
+        }
+        
+        /* Botón Dorado */
+        .btn-gold {
+            background: linear-gradient(135deg, #dfb944, #cba229) !important;
+            color: #1a1a1a !important;
+            box-shadow: 0 10px 25px rgba(223, 185, 68, 0.3) !important;
+            width: fit-content;
+            font-weight: 800;
+        }
+        .btn-gold:hover {
+            box-shadow: 0 15px 35px rgba(223, 185, 68, 0.5) !important;
+            transform: translateY(-4px);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            padding: 40px 40px 60px 0;
+            overflow: hidden;
+        }
+        
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            padding: 0 15px; 
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .slide-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .slide-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 8s ease;
+        }
+
+        .slide.active-slide .slide-inner img { transform: scale(1.08); }
+        
+        /* Tarjeta Glassmorphism */
+        .slide-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            width: calc(100% - 48px);
+            padding: 24px 28px;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            text-align: left;
+            transform: translateY(30px); 
+            opacity: 0; 
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .slide.active-slide .slide-caption { transform: translateY(0); opacity: 1; }
+
+        .slide-caption h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .slide-caption p {
+            color: #f0f0f0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .dot {
+            width: 8px; height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .dot.active { 
+            background: var(--accent); 
+            transform: scale(1.5); 
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        /* --- CATÁLOGO --- */
+        .catalog-section-container { background-color: var(--bg-soft); padding: 100px 0; }
+        .catalog-hero { padding: 0 0 60px; text-align: center; }
+        .catalog-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 15px; color: var(--dark); }
+        
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .catalog-item {
+            background: var(--white);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+            transition: var(--transition);
+            display: flex; flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .catalog-item:hover { 
+            transform: translateY(-12px); 
+            box-shadow: 0 30px 60px rgba(0, 112, 113, 0.12); 
+            border-color: rgba(0, 112, 113, 0.1);
+        }
+
+        .media-container { width: 100%; height: 280px; overflow: hidden; position: relative; background: #000; }
+        .media-container img, .media-container video { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 1.2s ease, filter 0.5s ease;
+            transform: scale(1.02);
+        }
+        .media-container::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.15); opacity: 0; transition: 0.5s;
+        }
+        .catalog-item:hover .media-container::after { opacity: 1; }
+        .catalog-item:hover .media-container img, .catalog-item:hover .media-container video {
+            transform: scale(1.1); filter: brightness(1.05);
+        }
+
+        .media-dual { display: flex; gap: 2px; }
+        .media-dual img { width: 50%; }
+
+        .item-info { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+        .item-info h3 { font-family: 'Playfair Display', serif; font-size: 1.7rem; margin-bottom: 12px; color: var(--primary); transition: 0.3s; }
+        .catalog-item:hover .item-info h3 { color: var(--dark); transform: translateX(5px); }
+        .item-info p { color: #666; font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
+
+        .price-tag { 
+            font-weight: 800; color: var(--dark); font-size: 0.85rem; text-transform: uppercase;
+            margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+        }
+        .price-tag::before { content: ''; width: 25px; height: 2px; background: var(--accent); transition: 0.3s; }
+        .catalog-item:hover .price-tag::before { width: 40px; background: var(--primary); }
+        
+        .btn-order {
+            display: block; text-align: center; background: var(--primary-light); color: var(--primary);
+            text-decoration: none; padding: 16px; border-radius: 14px; font-weight: 800;
+            transition: var(--transition); position: relative; overflow: hidden;
+        }
+        .btn-order:hover { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(0,112,113,0.2); }
+
+        /* --- CTA & LOCAL --- */
+        .cta-wrapper {
+            background: var(--white); border-radius: 32px; padding: 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .cta-info-card {
+            background: var(--primary); color: white; padding: 40px; border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 112, 113, 0.25);
+            transform: rotate(2deg); transition: var(--transition-bounce);
+        }
+        .cta-wrapper:hover .cta-info-card { transform: rotate(0deg) scale(1.02); }
+
+        /* WSP FLOTANTE */
+        .wsp-float {
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 32px; box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4); z-index: 1000; transition: var(--transition);
+        }
+        .wsp-float::before, .wsp-float::after {
+            content: ''; position: absolute; border-radius: 50%; width: 100%; height: 100%; border: 2px solid #25d366;
+            animation: pulse-border 2s infinite; opacity: 0;
+        }
+        .wsp-float::after { animation-delay: 0.5s; }
+        @keyframes pulse-border { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.6); opacity: 0; } }
+        .wsp-float:hover { transform: scale(1.1) rotate(10deg); background: #20bd5a; }
+
+        /* --- TESTIMONIOS --- */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .testimonial-card {
+            background: var(--white); padding: 35px; border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-left: 4px solid var(--accent);
+            transition: var(--transition);
+        }
+        .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,112,113,0.1); }
+        .stars { color: var(--accent); margin-bottom: 15px; font-size: 0.9rem; }
+        .client-name { font-weight: 800; margin-top: 20px; font-size: 1rem; color: var(--primary); }
+
+        /* --- FAQ --- */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--white); margin-bottom: 16px; border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.04); overflow: hidden;
+        }
+        .faq-question {
+            padding: 24px; width: 100%; text-align: left; background: none; border: none;
+            font-weight: 700; font-size: 1.05rem; color: var(--dark); cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center; font-family: inherit;
+        }
+        .faq-question i { color: var(--primary); transition: transform 0.3s ease; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: #555; font-size: 0.95rem; line-height: 1.7; }
+        .faq-item.active .faq-answer { padding: 0 24px 24px; max-height: 300px; }
+
+        /* BADGE */
+        .badge { 
+            background: var(--primary-light); color: var(--primary); padding: 6px 16px; 
+            border-radius: 50px; font-weight: 800; font-size: 0.75rem; width: fit-content; 
+            margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        /* --- PROMO BAR --- */
+        .promo-bar {
+            background-color: var(--dark); color: var(--white); text-align: center;
+            padding: 12px 20px; font-size: 0.85rem; font-weight: 600; position: relative; z-index: 1002;
+            display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;
+        }
+        .promo-bar span { color: var(--accent); }
+        .promo-bar a { background: var(--primary); color: white; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-size: 0.75rem; transition: var(--transition); }
+        .promo-bar a:hover { background: var(--accent); color: var(--dark); }
+
+        footer { background: #0a0a0a; color: white; padding: 80px 0 30px; border-radius: 40px 40px 0 0; position: relative; overflow: hidden; }
+        
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero-grid, .featured-product, .cta-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .hero { padding: 140px 0 80px; text-align: center; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-image-wrap { order: -1; }
+            .badge { margin: 0 auto 16px; }
+            
+            /* Ajustes Slider Móvil */
+            .featured-content { padding: 40px 24px; align-items: center; text-align: center; }
+            .slider-container { padding: 0 20px 60px 20px; min-height: 420px; }
+            
+            .cta-wrapper { padding: 40px 24px; text-align: center; }
+            .cta-info-card { transform: rotate(0); }
+            
+            .nav-actions { gap: 12px; }
+            .btn-nav-text { display: none; } 
+            .btn-nav-outline { padding: 8px 12px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="promoBar" class="promo-bar">
+        <span>🔥 ¡Promoción Especial!</span> 20% de descuento en tu primera consulta podológica. 
+        <a href="https://wa.me/51946992556?text=Hola,%20quiero%20aprovechar%20la%20promoción%20de%20primera%20consulta." target="_blank">Aprovechar ahora</a>
+    </div>
+
+    <div class="scroll-progress" id="progressBar"></div>
+
+    <header id="mainHeader" style="top: auto;"> 
+        <div class="container nav-content">
+            <img src="Perfil.jpeg" alt="Logo JyM" class="logo-small">
+            <div class="nav-actions">
+                <a href="#servicios" class="btn-nav-text">Tratamientos</a>
+                <a href="#testimonios" class="btn-nav-text">Testimonios</a>
+                <a href="#catalogo-completo" class="btn-nav-text">Catálogo</a>
+                <a href="https://wa.me/51946992556?text=Hola,%20deseo%20reservar%20una%20cita%20podológica." target="_blank" class="btn-nav-outline">
+                    <i class="fas fa-calendar-alt"></i> RESERVAR CITA
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <a href="https://wa.me/51946992556?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20servicios." class="wsp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text" data-aos="fade-right" data-aos-duration="1200">
+                <div class="badge" data-aos="zoom-in" data-aos-delay="200">Especialistas en Podología</div>
+                <h1>Bienestar integral para tus <span>pies.</span></h1>
+                <p style="font-size: 1.15rem; margin-bottom: 35px; color: #555; max-width: 580px;">
+                    Recupera el placer de caminar sin molestias. Tu salud en manos expertas para que des cada paso con total seguridad y confianza.
+                </p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <a href="https://wa.me/51946992556?text=Hola,%20quiero%20agendar%20mi%20evaluación." target="_blank" class="btn btn-main">Agenda tu Evaluación</a>
+                    <a href="#catalogo-completo" class="btn" style="background: var(--primary-light); color: var(--primary);">Ver Servicios</a>
+                </div>
+            </div>
+            <div class="hero-image-wrap" data-aos="fade-left" data-aos-duration="1200">
+                <img src="Perfil.jpeg" alt="JyM Podologia" class="hero-main-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" style="padding: 100px 0; background-color: var(--white);">
+        <div class="container">
+            <div class="featured-product" data-aos="fade-up" data-aos-duration="1000">
+                <div class="featured-content">
+                    <div class="badge" style="background: rgba(223, 185, 68, 0.2); color: var(--accent);">Resultados Reales</div>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-bottom: 20px; color: white; line-height: 1.1;">Confianza de Clientes Satisfechos</h2>
+                    <p style="margin-bottom: 35px; opacity: 0.85; font-size: 1.05rem; color: #eaeaea; max-width: 400px; font-weight: 300;">
+                        Más de 500 clientes satisfechos avalan nuestra excelencia. Usamos <b>Productos Especializados</b> y tecnología de vanguardia para tu salud.
+                    </p>
+                    <a href="https://wa.me/51946992556?text=Hola,%20quisiera%20consultar%20los%20precios%20de%20sus%20tratamientos." class="btn btn-main btn-gold">Consultar Precios</a>
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-track" id="sliderTrack">
+                        
+                        <div class="slide">
+                            <div class="slide-inner">
+                                <img src="cliente01.jpeg" alt="Tratamiento Láser" loading="lazy">
+                                <div class="slide-caption">
+                                    <h4>Tratamiento Láser</h4>
+                                    <p>Tecnología indolora para eliminar hongos y lesiones.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <div class="slide-inner">
+                                <img src="cliente02.jpeg" alt="Podología Clínica" loading="lazy">
+                                <div class="slide-caption">
+                                    <h4>Podología Clínica</h4>
+                                    <p>Diagnóstico preciso y cuidado médico integral.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <div class="slide-inner">
+                                <img src="cliente03.jpeg" alt="Reflexología Podal" loading="lazy">
+                                <div class="slide-caption">
+                                    <h4>Reflexología Relax</h4>
+                                    <p>Terapia de puntos de presión para equilibrar tu cuerpo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <div class="slide-inner">
+                                <img src="Productos Especializados.jpeg" alt="Productos Especializados" loading="lazy">
+                                <div class="slide-caption">
+                                    <h4>Cuidado Premium</h4>
+                                    <p>Lleva la excelencia de nuestros productos a casa.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nuestro-local" style="padding: 80px 0; background-color: var(--white);">
+        <div class="container">
+            <div class="cta-wrapper" data-aos="fade-up">
+                <div class="local-image-container" style="border-radius: 24px; overflow: hidden; height: 100%;">
+                    <img src="Local.jpeg" alt="Local JyM" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s;">
+                </div>
+                <div class="local-text-content" style="padding: 20px 0;">
+                    <div class="badge">Ambiente Profesional</div>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 15px 0; color: var(--dark); line-height: 1.1;">
+                        Un espacio diseñado para tu <i style="color: var(--primary);">confort.</i>
+                    </h2>
+                    <p style="color: #666; margin-bottom: 25px; font-size: 1.05rem;">
+                        En <b>JyM Podología</b>, nos esforzamos por ofrecerte no solo los mejores tratamientos, sino también un entorno clínico moderno, higiénico y acogedor en el corazón de Miraflores.
+                    </p>
+                    <ul style="list-style: none; margin-bottom: 35px; color: #444;">
+                        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); font-size: 1.1rem;"></i> Protocolos de esterilización rigurosos.
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); font-size: 1.1rem;"></i> Consultorios privados y cómodos.
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-check-circle" style="color: var(--primary); font-size: 1.1rem;"></i> Uso de <b>Productos Especializados</b>.
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/51946992556?text=Hola,%20quisiera%20conocer%20la%20ubicación%20exacta." target="_blank" class="btn-nav-outline" style="width: fit-content;">
+                        CONOCER SEDE MIRAFLORES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo-completo" class="catalog-section-container">
+        <div class="catalog-hero" data-aos="fade-down">
+            <div class="container">
+                <div class="badge" style="margin: 0 auto 15px;">Elegancia & Salud Clínica</div>
+                <h1>Catálogo de Servicios</h1>
+                <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto; color: #666;">Cuidado podológico de élite con un enfoque en tu bienestar duradero.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="catalog-grid">
+                
+                <div class="catalog-item" data-aos="fade-up" data-aos-delay="0">
+                    <div class="media-container">
+                        <video autoplay muted loop playsinline poster="poster-laser.jpg">
+                            <source src="Lazer .mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item-info">
+                        <h3>Tecnología Láser</h3>
+                        <p>Tratamiento indoloro de última generación para onicomicosis y verrugas plantares.</p>
+                        <span class="price-tag">Evaluación previa</span>
+                        <a href="https://wa.me/51946992556?text=Hola,%20deseo%20más%20información%20sobre%20el%20Tratamiento%20Láser." class="btn-order">Consultar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="media-container media-dual">
+                        <img src="Uñero.jpeg" alt="Uñero 1">
+                        <img src="uñero 2.jpeg" alt="Uñero 2">
+                    </div>
+                    <div class="item-info">
+                        <h3>Curación de Uñeros</h3>
+                        <p>Aplicamos técnicas clínicas especializadas para un alivio inmediato sin dolor excesivo.</p>
+                        <span class="price-tag">Atención de Urgencia</span>
+                        <a href="https://wa.me/51946992556?text=Hola,%20necesito%20una%20curación%20de%20uñero." class="btn-order">Agendar Curación</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="media-container">
+                        <img src="Matricectomia.jpeg" alt="Matricectomía" style="object-position: center;">
+                    </div>
+                    <div class="item-info">
+                        <h3>Matricectomía</h3>
+                        <p>Cirugía menor ambulatoria para corregir definitivamente el crecimiento anormal ungueal.</p>
+                        <span class="price-tag">Proceso Quirúrgico</span>
+                        <a href="https://wa.me/51946992556?text=Hola,%20quisiera%20costos%20sobre%20Matricectomía." class="btn-order">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <div class="catalog-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="media-container">
+                        <video autoplay muted loop playsinline poster="poster-acrilico.jpg">
+                            <source src="acrilico medicado.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item-info">
+                        <h3>Acrílico Medicado</h3>
+                        <p>Reconstrucción estética que protege la lámina ungueal mientras se recupera tu uña natural.</p>
+                        <span class="price-tag">Estética Podológica</span>
+                        <a href="https://wa.me/51946992556?text=Hola,%20estoy%20interesado(a)%20en%20Acrílico%20Medicado." class="btn-order">Solicitar Reconstrucción</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" style="padding: 100px 0; background-color: var(--white);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-down">
+                <div class="badge" style="margin: 0 auto 15px;">Experiencias Reales</div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.6rem; color: var(--dark);">Pacientes Felices</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p style="color: #555; font-style: italic;">"Excelente atención. Fui por un uñero que me dolía horrores y me solucionaron el problema el mismo día. Ambiente impecable y muy amables."</p>
+                    <div class="client-name">- Carlos Mendoza</div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p style="color: #555; font-style: italic;">"El tratamiento láser para los hongos fue un éxito. Había probado muchas cremas sin resultados, pero con la tecnología de JyM por fin mis uñas están sanas."</p>
+                    <div class="client-name">- Lucía Vargas</div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p style="color: #555; font-style: italic;">"La reflexología me dejó los pies como nuevos. Un servicio verdaderamente premium en el corazón de Miraflores. Lo recomiendo al 100%."</p>
+                    <div class="client-name">- Fernando Aliaga</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" style="padding: 60px 0 100px; background-color: var(--bg-soft);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-down">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--dark);">Preguntas Frecuentes</h2>
+                <p style="color: #666; font-size: 1.1rem; margin-top: 10px;">Resolvemos tus dudas antes de tu primera visita.</p>
+            </div>
+            
+            <div class="faq-container" data-aos="fade-up">
+                <div class="faq-item">
+                    <button class="faq-question">¿El tratamiento para uñeros duele? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><p>Utilizamos técnicas modernas y, dependiendo del caso, anestesia local para asegurar que el procedimiento sea lo menos invasivo y más indoloro posible. Tu confort es nuestra prioridad.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Cuántas sesiones láser necesito para los hongos? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><p>El número de sesiones varía según el grado de infección de cada paciente. Por lo general, se recomiendan entre 4 y 8 sesiones, pero realizamos una evaluación inicial para darte un plan exacto.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">¿Necesito sacar cita previa? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer"><p>Sí, para garantizar una atención puntual y un ambiente esterilizado entre pacientes, trabajamos previa cita. Puedes agendar fácilmente enviándonos un mensaje por WhatsApp.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 100px 0; background: var(--bg-soft); position: relative;">
+        <div class="container">
+            <div class="cta-wrapper" data-aos="fade-up">
+                <div class="cta-text-content">
+                    <span style="color: var(--primary); font-weight: 800; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase;">Tu salud es prioridad</span>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.6rem; margin: 15px 0 25px; line-height: 1.15; color: var(--dark);">
+                        ¿Listo para el cuidado <br><i style="color: var(--primary);">que mereces?</i>
+                    </h2>
+                    <p style="font-size: 1.05rem; color: #555; margin-bottom: 35px; max-width: 450px;">
+                        Visítanos en Miraflores y experimenta la diferencia de una atención personalizada y de élite.
+                    </p>
+                    <a href="https://wa.me/51946992556?text=Hola,%20quiero%20agendar%20una%20cita." target="_blank" class="btn btn-main">
+                        <i class="fab fa-whatsapp" style="margin-right: 10px; font-size: 1.2rem;"></i> Agendar Cita Ahora
+                    </a>
+                </div>
+
+                <div class="cta-info-card">
+                    <h3 style="color: white; font-size: 1.3rem; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; font-family: 'Playfair Display', serif;">Ubicación y Horario</h3>
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: center;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 1.2rem; color: var(--accent);"></i>
+                        <p style="font-size: 0.95rem;"><b>Sede:</b> Calle Porta # 170 - Miraflores</p>
+                    </div>
+                    <div style="display: flex; gap: 15px; margin-bottom: 15px; align-items: center;">
+                        <i class="fas fa-clock" style="font-size: 1.2rem; color: var(--accent);"></i>
+                        <p style="font-size: 0.95rem;"><b>Horario:</b> Lunes a Sábado 9 AM - 8 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 50px;">
+                <div>
+                    <img src="Perfil.jpeg" alt="Logo" style="height: 65px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 0 20px rgba(255,255,255,0.1);">
+                    <p style="opacity: 0.7; font-size: 0.9rem; max-width: 300px;">Expertos en Podología Clínica y Reflexología en el corazón de Miraflores.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--accent);">Síguenos</h4>
+                    <div style="display: flex; gap: 20px; font-size: 1.6rem;">
+                        <a href="https://www.tiktok.com/@jym.podologia" target="_blank" style="color: white; transition: 0.3s; opacity: 0.8;"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/jym.podologia.reflexologia/" target="_blank" style="color: white; transition: 0.3s; opacity: 0.8;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/51946992556" target="_blank" style="color: white; transition: 0.3s; opacity: 0.8;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                <p style="font-size: 0.85rem; opacity: 0.5;">© 2026 JyM Podología. Todos los derechos reservados.</p>
+                <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.7;">Diseñado por 
+                    <a href="https://linktr.ee/SrWebTech" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 700;">SrWebTech</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 900, once: true, offset: 50 });
+
+        // Slider
+        const track = document.getElementById('sliderTrack');
+        const slides = Array.from(track.children);
+        const dotsContainer = document.getElementById('sliderDots');
+        let currentIndex = 0;
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => moveToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsContainer.children);
+
+        function moveToSlide(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${100 * currentIndex}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+            
+            slides.forEach(s => s.classList.remove('active-slide'));
+            slides[currentIndex].classList.add('active-slide');
+        }
+
+        slides[0].classList.add('active-slide');
+        setInterval(() => { currentIndex = (currentIndex + 1) % slides.length; moveToSlide(currentIndex); }, 6000);
+
+        // Header & Promo Bar
+        const header = document.getElementById('mainHeader');
+        const promoBar = document.getElementById('promoBar');
+        
+        function adjustHeaderTop() { if(promoBar) { header.style.top = promoBar.offsetHeight + 'px'; } }
+        window.addEventListener('load', adjustHeaderTop);
+        window.addEventListener('resize', adjustHeaderTop);
+
+        window.addEventListener('scroll', () => {
+            const promoBarHeight = promoBar ? promoBar.offsetHeight : 0;
+            if (window.scrollY > promoBarHeight) {
+                header.classList.add('scrolled'); header.style.top = '0px';
+            } else {
+                header.classList.remove('scrolled'); header.style.top = (promoBarHeight - window.scrollY) + 'px';
+            }
+            
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("progressBar").style.width = ((winScroll / height) * 100) + "%";
+        });
+
+        // FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(other => { if (other !== item) other.classList.remove('active'); });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
