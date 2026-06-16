@@ -437,6 +437,33 @@
         .t-text { font-size: 0.95rem; color: #444; line-height: 1.75; margin-bottom: 24px; font-style: italic; }
         .t-author { font-weight: 700; color: var(--teal); font-size: 0.9rem; }
         .t-role { font-size: 0.8rem; color: var(--muted); }
+        .reviews-overview {
+            display: flex; align-items: center; justify-content: center; gap: 14px;
+            flex-wrap: wrap; margin-top: 30px; color: var(--muted); font-size: 0.92rem;
+        }
+        .reviews-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: white; color: var(--ink); border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 999px; padding: 10px 18px; box-shadow: 0 8px 26px rgba(0,0,0,0.04);
+            font-weight: 700;
+        }
+        .reviews-badge i { color: #4285f4; }
+        .review-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .review-avatar {
+            width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+            background: var(--teal-soft); color: var(--teal);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 800; flex: 0 0 44px;
+        }
+        .review-google-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            margin-top: 14px; color: var(--teal); font-weight: 700; text-decoration: none;
+        }
+        .review-loader, .reviews-note {
+            grid-column: 1/-1; text-align: center; color: var(--muted);
+            background: white; border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 24px; padding: 34px;
+        }
 
         /* FAQ */
         .faq-section { background: white; }
@@ -1096,61 +1123,12 @@
             <div class="section-label" style="justify-content: center;">Lo que dicen nuestros pacientes</div>
             <h2 class="section-title">Experiencias <em>reales</em></h2>
         </div>
-        <div class="testimonials-scroll">
-            <div class="t-card reveal reveal-delay-1">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"Fui por un uñero que me dolía horrores y me solucionaron el problema el mismo día. Ambiente impecable y muy amables."</p>
-                <div class="t-author">Carlos Mendoza</div>
-                <div class="t-role">Paciente · Miraflores</div>
-            </div>
-            <div class="t-card reveal reveal-delay-2">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"El tratamiento láser para los hongos fue un éxito total. Había probado cremas sin resultado. Con JyM por fin mis uñas están sanas."</p>
-                <div class="t-author">Lucía Vargas</div>
-                <div class="t-role">Paciente · San Isidro</div>
-            </div>
-            <div class="t-card reveal reveal-delay-3">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"La reflexología me dejó los pies como nuevos. Un servicio verdaderamente premium. Lo recomiendo al 100% a todos mis conocidos."</p>
-                <div class="t-author">Fernando Aliaga</div>
-                <div class="t-role">Paciente · Surco</div>
-            </div>
-            <div class="t-card reveal reveal-delay-1">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"Llevo 3 sesiones de láser y ya noto mejoría. El equipo es moderno y las explicaciones fueron claras. Muy profesionales."</p>
-                <div class="t-author">Patricia Rojas</div>
-                <div class="t-role">Paciente · Miraflores</div>
-            </div>
-            <div class="t-card reveal reveal-delay-2">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"Después de años con hongos en las uñas, encontré la solución aquí. Trato excelente y seguimiento personalizado."</p>
-                <div class="t-author">Roberto Silva</div>
-                <div class="t-role">Paciente · La Molina</div>
-            </div>
-            <div class="t-card reveal reveal-delay-3">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"Excelente atención, puntualidad y limpieza. Mis pies nunca se habían sentido tan bien. Volveré sin dudar."</p>
-                <div class="t-author">Mariana García</div>
-                <div class="t-role">Paciente · San Isidro</div>
-            </div>
-            <div class="t-card reveal reveal-delay-1">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"Impresionante lo rápido que resolvieron mi uñero. Recomendé a mi hermana y también quedó encantada."</p>
-                <div class="t-author">Diego Córdova</div>
-                <div class="t-role">Paciente · Miraflores</div>
-            </div>
-            <div class="t-card reveal reveal-delay-2">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"La reflexología es muy relajante y efectiva. Ambiente tranquilo, buen precio y resultados visibles."</p>
-                <div class="t-author">Sofía Morales</div>
-                <div class="t-role">Paciente · Surco</div>
-            </div>
-            <div class="t-card reveal reveal-delay-3">
-                <div class="stars">★★★★★</div>
-                <p class="t-text">"Profesionales con experiencia, equipos modernos y trato cálido. Sigo yendo cada mes para mantenimiento."</p>
-                <div class="t-author">Jorge Delgado</div>
-                <div class="t-role">Paciente · San Borja</div>
-            </div>
+        <div class="reviews-overview reveal reveal-delay-1" id="googleReviewsSummary">
+            <span class="reviews-badge"><i class="fab fa-google"></i> Reseñas de Google</span>
+            <span>Opiniones publicadas por pacientes reales.</span>
+        </div>
+        <div class="testimonials-scroll" id="googleReviewsGrid">
+            <div class="review-loader">Cargando opiniones reales desde Google...</div>
         </div>
     </div>
 </section>
@@ -1365,6 +1343,80 @@ document.querySelectorAll('.faq-item').forEach(item => {
         if (!isOpen) item.classList.add('open');
     });
 });
+
+// ---- GOOGLE REVIEWS ----
+const googleMapsReviewsUrl = 'https://www.google.com/maps/place/Podolog%C3%ADa+-+J+%26+M+PODOLOG%C3%8DA/@-12.1236623,-77.0316396,15z/data=!4m8!3m7!1s0x9105c9a7c33359bd:0x94a6f72c1e09b83b!8m2!3d-12.1236623!4d-77.0316396!9m1!1b1!16s%2Fg%2F11xp8wv9p_?entry=ttu';
+
+function reviewStars(rating) {
+    const score = Math.max(0, Math.min(5, Math.round(Number(rating) || 5)));
+    return '★★★★★'.slice(0, score) + '☆☆☆☆☆'.slice(0, 5 - score);
+}
+
+function authorInitial(name) {
+    return (name || 'G').trim().charAt(0).toUpperCase();
+}
+
+function googleFallback(message) {
+    return `
+        <div class="reviews-note">
+            <div class="stars">★★★★★</div>
+            <p class="t-text" style="margin-bottom: 12px;">${message}</p>
+            <a class="review-google-link" href="${googleMapsReviewsUrl}" target="_blank">
+                <i class="fab fa-google"></i> Ver opiniones reales en Google
+            </a>
+        </div>
+    `;
+}
+
+async function loadGoogleReviews() {
+    const grid = document.getElementById('googleReviewsGrid');
+    const summary = document.getElementById('googleReviewsSummary');
+    if (!grid || !summary) return;
+
+    try {
+        const res = await fetch('/api/google-reviews');
+        const data = await res.json();
+
+        if (!res.ok || !data.configured || !Array.isArray(data.reviews) || data.reviews.length === 0) {
+            grid.innerHTML = googleFallback('Conecta la API de Google Places para mostrar aquí las reseñas reales automáticamente.');
+            return;
+        }
+
+        const rating = data.rating ? Number(data.rating).toFixed(1) : '5.0';
+        const total = data.userRatingCount ? `${data.userRatingCount} opiniones` : 'Opiniones reales';
+        summary.innerHTML = `
+            <span class="reviews-badge"><i class="fab fa-google"></i> ${rating} / 5 en Google</span>
+            <span>${total} publicadas por pacientes.</span>
+            <a class="review-google-link" href="${data.googleMapsUri || googleMapsReviewsUrl}" target="_blank">Ver ficha completa</a>
+        `;
+
+        grid.innerHTML = data.reviews.slice(0, 5).map((review, index) => {
+            const name = review.authorName || 'Paciente de Google';
+            const photo = review.authorPhoto ? `<img class="review-avatar" src="${review.authorPhoto}" alt="${name}">` : `<span class="review-avatar">${authorInitial(name)}</span>`;
+            const delay = `reveal-delay-${(index % 3) + 1}`;
+            return `
+                <div class="t-card reveal ${delay} visible">
+                    <div class="review-head">
+                        ${photo}
+                        <div>
+                            <div class="t-author">${name}</div>
+                            <div class="t-role">${review.relativeTime || 'Reseña de Google'}</div>
+                        </div>
+                    </div>
+                    <div class="stars">${reviewStars(review.rating)}</div>
+                    <p class="t-text">"${review.text || 'Paciente satisfecho con la atención recibida.'}"</p>
+                    <a class="review-google-link" href="${review.authorUri || data.googleMapsUri || googleMapsReviewsUrl}" target="_blank">
+                        <i class="fab fa-google"></i> Ver en Google
+                    </a>
+                </div>
+            `;
+        }).join('');
+    } catch (error) {
+        grid.innerHTML = googleFallback('No se pudieron cargar las reseñas en este momento. Puedes revisarlas directamente en Google Maps.');
+    }
+}
+
+loadGoogleReviews();
 
 </script>
 </body>
