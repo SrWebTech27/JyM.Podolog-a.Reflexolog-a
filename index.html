@@ -559,27 +559,34 @@
         .info-card strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
         .info-card span { font-size: 0.82rem; opacity: 0.7; }
 
-        /* WSP */
-        .wsp-float {
-            position: fixed; bottom: 30px; right: 30px;
-            width: 60px; height: 60px; border-radius: 50%;
-            background: #25d366; color: white;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; z-index: 1000;
-            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
-            text-decoration: none; transition: all 0.3s var(--ease);
+        /* BOTÓN MASCOTA */
+        .chat-float{
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            z-index:9999;
+            display:block;
+            text-decoration:none;
+            animation:chatFloat 3s ease-in-out infinite;
         }
-        .wsp-float::before {
-            content: ''; position: absolute;
-            width: 100%; height: 100%; border-radius: 50%;
-            border: 2px solid #25d366;
-            animation: wspPulse 2s infinite;
+        .chat-img{
+            width:170px;
+            height:auto;
+            display:block;
+            filter:drop-shadow(0 12px 25px rgba(0,0,0,.25));
+            transition:.35s;
         }
-        @keyframes wspPulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.7); opacity: 0; }
+        .chat-float:hover .chat-img{
+            transform:scale(1.08);
         }
-        .wsp-float:hover { transform: scale(1.1); background: #20bd5a; }
+        @keyframes chatFloat{
+            0%,100%{transform:translateY(0);}
+            50%{transform:translateY(-8px);}
+        }
+        @media(max-width:768px){
+            .chat-img{width:120px;}
+            .chat-float{right:10px;bottom:10px;}
+        }
 
         /* FOOTER */
         footer {
@@ -773,9 +780,12 @@
     </a>
 </div>
 
-<!-- WSP FLOAT -->
-<a href="https://wa.me/51946992556?text=Hola,%20tengo%20una%20consulta." class="wsp-float" target="_blank" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
+<!-- BOTÓN MASCOTA -->
+<a href="https://wa.me/51946992556?text=Hola,%20tengo%20una%20consulta."
+   class="chat-float"
+   target="_blank"
+   aria-label="Reservar por WhatsApp">
+    <img src="animal.png" alt="Reservar" class="chat-img">
 </a>
 
 <!-- HERO -->
@@ -1421,4 +1431,3 @@ loadGoogleReviews();
 </script>
 </body>
 </html>
-saens
