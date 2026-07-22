@@ -1,0 +1,23 @@
+{
+  "HTML-001": {
+    "occurrences": 8,
+    "confidence": 1,
+    "mastered_explicitly": false,
+    "first_seen": "2026-07-03T02:21:09.260Z",
+    "last_seen": "2026-07-05T23:18:53.909Z"
+  },
+  "SEC-004": {
+    "occurrences": 8,
+    "confidence": 1,
+    "mastered_explicitly": false,
+    "first_seen": "2026-07-03T02:21:09.264Z",
+    "last_seen": "2026-07-05T23:18:53.914Z"
+  },
+  "REACT-003": {
+    "occurrences": 2,
+    "confidence": 1,
+    "mastered_explicitly": false,
+    "first_seen": "2026-07-03T02:21:09.267Z",
+    "last_seen": "2026-07-05T23:18:53.913Z"
+  }
+}
